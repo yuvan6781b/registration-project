@@ -7,7 +7,7 @@ form.addEventListener('submit', function (event) {
 
   const name = document.getElementById('fullName').value.trim();
   const email = document.getElementById('email').value.trim();
- 
+  const password = document.getElementById('password').value.trim();
 
   // Reset alert visibility and classes
   alertBox.classList.add('d-none');
@@ -16,6 +16,8 @@ form.addEventListener('submit', function (event) {
   // Validation logic
   if (!name || !email || !password) {
     showNotification('Please fill in all required fields.', 'alert-danger');
+  } else if (password.length < 6) {
+    showNotification('Password must be at least 6 characters long.', 'alert-warning');
   } else {
     showNotification(`Welcome, ${name}! Registration successful.`, 'alert-success');
     form.reset(); // Clear form inputs on success
